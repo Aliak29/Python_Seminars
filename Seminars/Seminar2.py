@@ -106,7 +106,7 @@ for i in range(n):
             period = count
     else:
         count = 0
-print(f'Дней оттепели было: {perio} шт.')
+print(f'Дней оттепели было: {period} шт.')
 
 2 Способ
 import random
@@ -124,7 +124,7 @@ for i in range(n):
             period = count
     else:
         count = 0
-print(f'Дней оттепели было: {perio} шт.')
+print(f'Дней оттепели было: {period} шт.')
 
 Срезы
 a = [14, 3, 75, 56, 86]
