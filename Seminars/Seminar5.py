@@ -1,17 +1,17 @@
-# n = int(input('Введите длину списка: '))
-# a = [int(x) for x in input( 'Введите числа через пробел: ' ).split()]
-# max_a = (max([a[i] for i in range(n)]))
-# min_a = (min([a[i] for i in range(n)]))
-# for i in range(len(a)):
-#     if a[i] == max_a:
-#         a[i] = min_a
-# print(a)
+n = int(input('Введите длину списка: '))
+a = [int(x) for x in input( 'Введите числа через пробел: ' ).split()]
+max_a = (max([a[i] for i in range(n)]))
+min_a = (min([a[i] for i in range(n)]))
+for i in range(len(a)):
+    if a[i] == max_a:
+        a[i] = min_a
+print(a)
 
-# def change_mark(old_mark):
-#     maximum = max(old_mark)
-#     minimum = min(old_mark)
-#     new_mark =[]
-#     for item in old_mark:
+def change_mark(old_mark):
+    maximum = max(old_mark)
+    minimum = min(old_mark)
+    new_mark =[]
+    for item in old_mark:
         if item == maximum:
             item = minimum
         new_mark.append(item)
