@@ -1,0 +1,73 @@
+Для выполнения задания, требуется реализовать несколько различных видов классов, реализующих интерфейс `TestInterface`, а именно вложенный нестатический, вложенный статический, анонимный класс и лямбда-выражение. Вот пример полного кода с этими реализациями:
+
+```java
+package lesson9;
+
+interface TestInterface {
+	int process(int a, int b);
+}
+
+public class Exercies {
+
+	public static void main(String[] args) {
+		// Вложенный нестатический класс
+		Exercies instance = new Exercies();
+		NestedClass nestedClass = instance.new NestedClass();
+		test(nestedClass);
+
+		// Вложенный статический класс
+		StaticNestedClass staticNestedClass = new StaticNestedClass();
+		test(staticNestedClass);
+
+		// Анонимный класс
+		test(new TestInterface() {
+			@Override
+			public int process(int a, int b) {
+				return a * b;
+			}
+		});
+
+		// Лямбда-выражение
+		test((a, b) -> a - b);
+	}
+
+	static void test(TestInterface ti) {
+		System.err.println("Result=" + ti.process(2, 4));
+	}
+
+	// Вложенный нестатический класс
+	class NestedClass implements TestInterface {
+		@Override
+		public int process(int a, int b) {
+			return a + b;
+		}
+	}
+
+	// Вложенный статический класс
+	static class StaticNestedClass implements TestInterface {
+		@Override
+		public int process(int a, int b) {
+			return a / b;
+		}
+	}
+}
+```
+
+### Объяснение:
+
+1. **Вложенный нестатический класс**:
+    - Вложенный класс `NestedClass` реализует интерфейс `TestInterface`.
+    - Этот класс имеет доступ к нестатическим членам внешнего класса.
+    - Для создания экземпляра вложенного нестатического класса требуется экземпляр внешнего класса.
+
+2. **Вложенный статический класс**:
+    - Вложенный класс `StaticNestedClass` также реализует интерфейс `TestInterface`.
+    - Этот класс не имеет доступа к нестатическим членам внешнего класса.
+
+3. **Анонимный класс**:
+    - Анонимный класс реализует интерфейс `TestInterface` и создается непосредственно в вызове метода `test`.
+
+4. **Лямбда-выражение**:
+    - Лямбда-выражение используется для реализации метода `process` интерфейса `TestInterface`.
+
+Каждая реализация передается в метод `test`, который вызывает метод `process` и выводит результат в консоль.
